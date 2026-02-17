@@ -3,35 +3,41 @@ package com.cafeteriaproject.kinalapp.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "facturas")
 public class Factura {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column(name = "id_factura")
     private Long idFactura;
+    @Column
+    private LocalDate fechaFactura;
+    @Column
+    private double totalFactura;
+    @Column
+    private String codigoFactura;
 
-    @Column(name = "fecha")
-    private LocalDate fecha;
+    //@ManyToOne
+    //@JoinColumn(name = "id_cliente")
+    //private Cliente cliente;
 
-    @Column(name = "total")
-    private double total;
+    // Foreign Key → Producto
+    //@ManyToOne
+    //@JoinColumn(name = "id_producto")
+    //private Producto producto;
 
-    @ManyToOne
-    @JoinColumn(name = "id_cliente")
-    private Cliente cliente;
 
     public Factura() {
     }
 
-    public Factura(Long idFactura, LocalDate fecha, double total, Cliente cliente) {
+    public Factura(Long idFactura, LocalDate fechaFactura, double totalFactura, String codigoFactura) {
         this.idFactura = idFactura;
-        this.fecha = fecha;
-        this.total = total;
-        this.cliente = cliente;
+        this.fechaFactura = fechaFactura;
+        this.totalFactura = totalFactura;
+        this.codigoFactura = codigoFactura;
+        //this.producto = producto;
+
     }
 
     public Long getIdFactura() {
@@ -42,27 +48,43 @@ public class Factura {
         this.idFactura = idFactura;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public LocalDate getFechaFactura() {
+        return fechaFactura;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setFechaFactura(LocalDate fechaFactura) {
+        this.fechaFactura = fechaFactura;
     }
 
-    public double getTotal() {
-        return total;
+    public double getTotalFactura() {
+        return totalFactura;
     }
 
-    public void setTotal(double total) {
-        this.total = total;
+    public void setTotalFactura(double totalFactura) {
+        this.totalFactura = totalFactura;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public String getCodigoFactura() {
+        return codigoFactura;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setCodigoFactura(String codigoFactura) {
+        this.codigoFactura = codigoFactura;
     }
+
+    //public Cliente getCliente() {
+    //return cliente;
+    //}
+
+    //public void setCliente(Cliente cliente) {
+    //this.cliente = cliente;
+    //}
+
+    //public Producto getProducto() {
+    //  return producto;
+    //}
+
+    //public void setProducto(Producto producto){
+    //this.producto = producto;
+    //}
 }

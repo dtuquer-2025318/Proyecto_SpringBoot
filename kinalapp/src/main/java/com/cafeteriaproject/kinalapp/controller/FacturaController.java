@@ -27,13 +27,6 @@ public class FacturaController {
         return repo.save(factura);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Factura> buscar(@PathVariable Long id) {
-        return repo.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
-
     @PutMapping("/{id}")
     public ResponseEntity<Factura> actualizar(@PathVariable Long id, @RequestBody Factura factura) {
         if (!repo.existsById(id)) {
@@ -41,6 +34,13 @@ public class FacturaController {
         }
         factura.setIdFactura(id);
         return ResponseEntity.ok(repo.save(factura));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Factura> buscarPorID(@PathVariable Long id) {
+        return repo.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
