@@ -12,7 +12,7 @@ public class Cliente {
     @Column(name = "id_cliente")
     private long IDCliente;
     @Column
-    private String nombreCLiente;
+    private String nombreCliente;
     @Column
     private String apellidoCliente;
     @Column
@@ -21,9 +21,9 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(long IDCliente, String nombreCLiente, String apellidoCliente, int carnetCliente) {
+    public Cliente(long IDCliente, String nombreCliente, String apellidoCliente, int carnetCliente) {
         this.IDCliente = IDCliente;
-        this.nombreCLiente = nombreCLiente;
+        this.nombreCliente = nombreCliente;
         this.apellidoCliente = apellidoCliente;
         this.carnetCliente = carnetCliente;
     }
@@ -36,12 +36,12 @@ public class Cliente {
         this.IDCliente = IDCliente;
     }
 
-    public String getNombreCLiente() {
-        return nombreCLiente;
+    public String getNombreCliente() {
+        return nombreCliente;
     }
 
-    public void setNombreCLiente(String nombreCLiente) {
-        this.nombreCLiente = nombreCLiente;
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
 
     public String getApellidoCliente() {

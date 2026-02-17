@@ -28,18 +28,29 @@ public class ClienteController {
         return repo.save(c);
     }
 
-    @PutMapping("/{carnet}")
-    public ResponseEntity<Cliente> actualizar(@PathVariable long carnet, @RequestBody Cliente cliente){
-        if (!repo.existsById(carnet)){
+    @PutMapping("/{id}")
+    public ResponseEntity<Cliente> actualizar(@PathVariable long id, @RequestBody Cliente cliente){
+        if (!repo.existsById(id)){
             return ResponseEntity.notFound().build();
         }
-        cliente.setIDCliente(carnet);
+        cliente.setIDCliente(id);
         return ResponseEntity.ok(repo.save(cliente));
     }
 
-    @GetMapping("/{carnet}")
-    public ResponseEntity<Cliente>buscarPorCarnet(@PathVariable long carnet){
-        return repo.findById(carnet).map(cliente-> ResponseEntity.ok(cliente)).orElse(ResponseEntity.notFound().build());
+    @GetMapping("/{id}")
+    public ResponseEntity<Cliente>buscarPorID(@PathVariable long id){
+        return repo.findById(id)
+                .map(cliente-> ResponseEntity.ok(cliente))
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminar(@PathVariable long id){
+        if(!repo.existsById(id)){
+            return ResponseEntity.notFound().build();
+        }
+        repo.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 
 }
