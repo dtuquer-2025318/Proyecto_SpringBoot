@@ -2,6 +2,8 @@ package com.cafeteriaproject.kinalapp.entity;
 
 import jakarta.persistence.*;
 
+@Entity
+@Table(name = "productos")
 public class Producto {
     @Id
     @Column(name = "id_producto")
@@ -13,27 +15,25 @@ public class Producto {
     @Column
     private long StockProducto;
 
-    //@ManyToOne
-    //@JoinColumn(name = "id_Factura")
-    //private Factura factura;
-
-    //@ManyToOne
-    //@JoinColusmn(name = "id_cliente")
-    //@JoinColumn Cliente cliente;
-
-    //@ManyToOne
-    //@JoinColumn(name = "id_proveedor")
-    //private Proveedor proveedor;
+//    @ManyToOne
+//    @JoinColumn(name = "id_cliente")
+//    private Cliente cliente;
+//
+//    //Foreign Key → Producto
+//    @ManyToOne
+//    @JoinColumn(name = "id_producto")
+//    private Producto producto;
 
     public Producto() {
     }
 
-    public Producto(long IDProducto, String nombreProducto, double precioProducto, long stockProducto) {
+    public Producto(long IDProducto, String nombreProducto, double precioProducto, long stockProducto) {//, Cliente cliente, Producto producto
         this.IDProducto = IDProducto;
         this.nombreProducto = nombreProducto;
         this.precioProducto = precioProducto;
         StockProducto = stockProducto;
-        //this.proveedor = proveedor;
+//        this.cliente = cliente;
+//        this.producto = producto;
     }
 
     public long getIDProducto() {
@@ -68,11 +68,19 @@ public class Producto {
         StockProducto = stockProducto;
     }
 
-    //public Proveedor getProveedor() {
-        //return proveedor;
-    //}
-
-    //public void setProveedor(Proveedor proveedor) {
-    //    this.proveedor = proveedor;
-   // }
+//    public Cliente getCliente() {
+//        return cliente;
+//    }
+//
+//    public void setCliente(Cliente cliente) {
+//        this.cliente = cliente;
+//    }
+//
+//    public Producto getProducto() {
+//        return producto;
+//    }
+//
+//    public void setProducto(Producto producto) {
+//        this.producto = producto;
+//    }
 }
