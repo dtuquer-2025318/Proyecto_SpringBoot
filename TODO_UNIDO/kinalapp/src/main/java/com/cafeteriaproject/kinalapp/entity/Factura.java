@@ -18,25 +18,24 @@ public class Factura {
     @Column
     private String codigoFactura;
 
-    //@ManyToOne
-    //@JoinColumn(name = "id_cliente")
-    //private Cliente cliente;
+    @ManyToOne
+    @JoinColumn(name = "id_cliente")
+    private Cliente cliente;
 
-    //@ManyToOne
-    //@JoinColumn(name = "id_producto")
-    //private Producto producto;
+    @ManyToOne
+    @JoinColumn(name = "id_producto")
+    private Producto producto;
 
     public Factura() {
     }
 
-    public Factura(Long idFactura, LocalDate fechaFactura, double totalFactura, String codigoFactura) {
-        //Cliente cliente, Producto producto
+    public Factura(Long idFactura, LocalDate fechaFactura, double totalFactura, String codigoFactura, Cliente cliente, Producto producto) {
         this.idFactura = idFactura;
         this.fechaFactura = fechaFactura;
         this.totalFactura = totalFactura;
         this.codigoFactura = codigoFactura;
-        //this.cliente = cliente;
-        //this.producto = producto;
+        this.cliente = cliente;
+        this.producto = producto;
     }
 
     public Long getIdFactura() {
@@ -71,20 +70,20 @@ public class Factura {
         this.codigoFactura = codigoFactura;
     }
 
-    //public Cliente getCliente() {
-        //return cliente;
-    //}
+    public Cliente getCliente() {
+        return cliente;
+    }
 
-    //public void setCliente(Cliente cliente) {
-        //this.cliente = cliente;
-    //}
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 
-    //public Producto getProducto() {
-        //return producto;
-    //}
+    public Producto getProducto() {
+        return producto;
+    }
 
-    //public void setProducto(Producto producto) {
-        //this.producto = producto;
-    //}
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
 }
 

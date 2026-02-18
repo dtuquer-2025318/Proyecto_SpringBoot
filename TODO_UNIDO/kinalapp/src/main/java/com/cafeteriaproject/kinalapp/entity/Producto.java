@@ -15,25 +15,19 @@ public class Producto {
     @Column
     private long StockProducto;
 
-//    @ManyToOne
-//    @JoinColumn(name = "id_cliente")
-//    private Cliente cliente;
-//
-//    //Foreign Key → Producto
-//    @ManyToOne
-//    @JoinColumn(name = "id_producto")
-//    private Producto producto;
+    @ManyToOne
+    @JoinColumn(name = "id_proveedor")
+    private Proveedor proveedor;
 
     public Producto() {
     }
 
-    public Producto(long IDProducto, String nombreProducto, double precioProducto, long stockProducto) {//, Cliente cliente, Producto producto
+    public Producto(long IDProducto, String nombreProducto, double precioProducto, long stockProducto, Proveedor proveedor) {
         this.IDProducto = IDProducto;
         this.nombreProducto = nombreProducto;
         this.precioProducto = precioProducto;
         StockProducto = stockProducto;
-//        this.cliente = cliente;
-//        this.producto = producto;
+        this.proveedor = proveedor;
     }
 
     public long getIDProducto() {
@@ -68,19 +62,11 @@ public class Producto {
         StockProducto = stockProducto;
     }
 
-//    public Cliente getCliente() {
-//        return cliente;
-//    }
-//
-//    public void setCliente(Cliente cliente) {
-//        this.cliente = cliente;
-//    }
-//
-//    public Producto getProducto() {
-//        return producto;
-//    }
-//
-//    public void setProducto(Producto producto) {
-//        this.producto = producto;
-//    }
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
+    }
 }
